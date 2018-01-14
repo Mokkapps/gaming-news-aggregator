@@ -6,7 +6,7 @@ require('dotenv').config({ path: '.env' });
 // Connect to database and handle any bad connections
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect(process.env.MONGODB_URI, {
     useMongoClient: true
   })
   .catch(err => {
