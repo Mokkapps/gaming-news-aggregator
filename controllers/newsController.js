@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
+const News = mongoose.model('News');
 
 exports.getNews = async (req, res) => {
-  res.json({
-    name: 'Test'
-  });
+  const news = await News.find();
+  return res.json(news);
 };
