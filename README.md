@@ -4,6 +4,8 @@ A Node.js backend app which provides an API to fetch gaming news from different 
 
 [Heroku](https://www.heroku.com/) is used as PaaS for deployment.
 
+Backend can be requested at https://gaming-news.herokuapp.com/
+
 ## Running Locally
 
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.

@@ -4,7 +4,7 @@ const moment = require('moment');
 const News = mongoose.model('News');
 const rebelGamer = require('../providers/rebelgamer');
 
-const FETCH_INTERVAL_IN_MS = 3600 * 1000;
+const FETCH_INTERVAL_IN_MS = 1800 * 1000; // each 30 minutes
 
 exports.start = async (req, res) => {
   setInterval(async () => {
