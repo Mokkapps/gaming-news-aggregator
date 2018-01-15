@@ -4,6 +4,7 @@ mongoose.Promise = global.Promise;
 const newsSchema = new mongoose.Schema({
   provider: String,
   date: Date,
+  author: String,
   id: {
     type: Number,
     required: true,
