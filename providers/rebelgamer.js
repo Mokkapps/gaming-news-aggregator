@@ -15,6 +15,7 @@ exports.extractNews = async (req, res) => {
       tags.push(term.name);
     });
     news.push({
+      link: article.link,
       author: article._embedded.author[0].name,
       provider: 'RebelGamer',
       date: article.date,
