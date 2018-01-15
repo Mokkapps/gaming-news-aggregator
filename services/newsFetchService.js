@@ -3,9 +3,7 @@ const axios = require('axios');
 const moment = require('moment');
 const News = mongoose.model('News');
 const rebelGamer = require('../providers/rebelgamer');
-const jpGames = require('../providers/jpGames');
-
-const FETCH_INTERVAL_IN_MS = 1800 * 1000; // each 30 minutes
+const gameNewz = require('../providers/gameNewz');
 
 exports.start = async (req, res) => {
   setInterval(async () => {
@@ -16,15 +14,15 @@ exports.start = async (req, res) => {
     await storeArticle(rebelgamerNews);
     console.log('Stored RebelGamer articles in database');
 
-    // JPGames
-    const jpGamesNews = await jpGames.extractNews();
-    await storeArticle(jpGamesNews);
-    console.log('Stored JPGames articles in database');
-
-  }, FETCH_INTERVAL_IN_MS);
+    // Gamenewz
+    const gameNewzNews = await gameNewz.extractNews();
+    console.log(gameNewzNews[0]);
+    //await storeArticle(gameNewzNews);
+    //console.log('Stored Gamenewz articles in database');
+  }, process.env.FETCH_INTERVAL_IN_MS);
 };
 
-storeArticle = async (news) => {
+storeArticle = async news => {
   const promises = news.map(article =>
     News.findOneAndUpdate({ id: article.id }, article, {
       new: true, // return the modified document rather than the original
@@ -33,6 +31,6 @@ storeArticle = async (news) => {
     }).exec()
   );
   await Promise.all(promises);
-}
+};
 
 exports.rebelGamer;

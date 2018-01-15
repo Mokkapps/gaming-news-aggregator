@@ -1,25 +1,26 @@
 const parser = require('rss-parser');
 const helpers = require('../helpers');
 
-const JPGAMES_RSS_URL = 'http://jpgames.de/feed/';
+const URL = 'http://gamenewz.de/feed/';
 
 exports.extractNews = async (req, res) => {
   return new Promise((resolve, reject) => {
     let news = [];
 
-    parser.parseURL(JPGAMES_RSS_URL, (err, parsed) => {
+    parser.parseURL(URL, (err, parsed) => {
       if (err) {
-        reject(`Error while fetching news from ${JPGAMES_RSS_URL}: ${err}`);
+        console.error(`Error while fetching news from ${URL}: ${err}`);
+        reject(news);
       }
       parsed.feed.entries.forEach(entry => {
         news.push({
           link: entry.link,
-          author: entry.creator,
+          author: entry['dc:creator'],
           provider: parsed.feed.title,
-          date: entry.pubDate,
+          date: entry.isoDate,
           id: entry.guid.match(/\d+/)[0],
           title: entry.title,
-          description: helpers.decodeHtml(entry['content:encoded']),
+          description: entry.content,
           tags: entry.categories
         });
       });
