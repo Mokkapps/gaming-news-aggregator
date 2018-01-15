@@ -35,7 +35,8 @@
     "html-entities": "^1.2.1",
     "moment": "^2.20.1",
     "mongoose": "^4.13.9",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.0-rc.4",
+    "rss-parser": "^2.12.0"
   },
   "devDependencies": {
     "request": "^2.81.0",

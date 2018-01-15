@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const http = require('http');
 
 const APP_NAME = 'gaming-news';
-const MONITORING_URL = 'https://nosnch.in/97982161bb ';
+const MONITORING_URL = 'http://nosnch.in/97982161bb';
 
 // import environmental variables from our variables.env file
 require('dotenv').config({ path: '.env' });
@@ -28,7 +28,7 @@ const server = app.listen(app.get('port'), () => {
 
   // Keep free Heroku web dyno alive
   setInterval(() => {
-    http.get(`https://${APP_NAME}.herokuapp.com`);
+    http.get(`http://${APP_NAME}.herokuapp.com`);
   }, 5 * 60 * 1000); // every 5 minutes
 
   // Monitoring
