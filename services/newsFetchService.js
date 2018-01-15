@@ -16,9 +16,8 @@ exports.start = async (req, res) => {
 
     // Gamenewz
     const gameNewzNews = await gameNewz.extractNews();
-    console.log(gameNewzNews[0]);
-    //await storeArticle(gameNewzNews);
-    //console.log('Stored Gamenewz articles in database');
+    await storeArticle(gameNewzNews);
+    console.log('Stored Gamenewz articles in database');
   }, process.env.FETCH_INTERVAL_IN_MS);
 };
 
