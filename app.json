@@ -2,7 +2,7 @@
   "name": "Gaming News Aggregator",
   "description": "Provides an API to fetch gaming news from different news provider",
   "repository": "https://github.com/Mokkapps/gaming-news-aggregator.git",
-  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "logo": "https://cdn.jsdelivr.net/gh/heroku/node-js-getting-started@master/public/node.svg",
   "keywords": ["node", "express", "heroku", "gaming", "news"],
   "image": "heroku/nodejs"
 }
